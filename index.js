@@ -4,6 +4,8 @@ let quantity = document.getElementById('productQuantity')
 let category = document.getElementById('productCategory')
 
 let create = document.getElementById('create')
+let mode = 'create'
+let loc;
 
 let productsArray
 if (localStorage.products != null) 
@@ -11,24 +13,23 @@ if (localStorage.products != null)
 else 
     productsArray = [];
 
-
-console.log(productsArray);
-
-
-let updateProduct = function(index){
+let updateProduct = function(index){    
     pname.value = productsArray[index].productName,
     price.value = productsArray[index].productPrice,
     quantity.value = productsArray[index].PoductQuantity,
     category.value = productsArray[index].ProductCategory
 
     create.value = 'update'; 
+    mode = 'update'
+    loc = index
+
     scroll({
         top:0,
         behaviour:'smooth'
     })
 }
 
-let showData = function(){
+let showData = function(){    
     let table = ''
     for (let i = 0; i < productsArray.length; i++) {
         table += `<tr>
@@ -52,7 +53,7 @@ let clearInputFields = function(){
     category.value = ''
 }
 
-create.addEventListener('click', function(event){
+create.addEventListener('click', function(event){    
     event.preventDefault();
     let product = {
         productName: pname.value,
@@ -60,8 +61,15 @@ create.addEventListener('click', function(event){
         PoductQuantity: quantity.value,
         ProductCategory: category.value
     }
-    console.log(product);
-    productsArray.push(product)
+
+    if(mode === 'create'){
+        productsArray.push(product)
+    }
+    else{
+        productsArray[loc] = product
+        create.value = 'create'
+        mode = 'craete'
+    }
 
     localStorage.setItem('products', JSON.stringify(productsArray))
     showData()
