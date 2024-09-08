@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>
+        CRUD application with local storage
+    </h1>
+    <form>
+
+        <label for="name" >Product Name</label>
+        <input type="text" placeholder="name" id="productName" name="pnam"><br>
+
+        <label for="age">Price</label>
+        <input type="text" placeholder="age" id="productPrice" name="pprice"><br>
+
+        <label for="adress">quantity</label>
+        <input type="text" placeholder="address" id="productQuantity" name="pquan"><br>
+
+        <label for="email">category</label>
+        <input type="text" placeholder="email" id="productCategory" name="pcat"><br><br>
+
+        <input type="submit" value="Create" id="create">
+        </form> 
+        <div id="deleteAll">
+
+        </div>
+        <table>
+            <thead>
+              <tr>
+                <th>productName</th>
+                <th>productPrice</th>
+                <th>productQuantity</th>
+                <th>productCategory</th>
+                <th>update</th>
+                <th>delete</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+          </table>
+        
+        </div>
+
+
+        <script src="index.js"></script>
+</body>
+</html>
