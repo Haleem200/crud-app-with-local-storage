@@ -29,6 +29,19 @@ let updateProduct = function(index){
     })
 }
 
+
+let deleteProduct = function(index){
+    productsArray.splice(index, 1)
+    localStorage.products = JSON.stringify(productsArray)
+    showData()
+}
+
+let deleteAll = function(){
+    productsArray = []
+    localStorage.clear()
+    showData()
+}
+
 let showData = function(){    
     let table = ''
     for (let i = 0; i < productsArray.length; i++) {
@@ -39,10 +52,14 @@ let showData = function(){
             <td>${productsArray[i].ProductCategory}</td>
          
           <td> <button onclick="updateProduct(${i})"  class="btn update">update</button></td> 
-         <td> <button onclick="deleteData(${i})" class="btn delete"> delete</button></td>
+         <td> <button onclick="deleteProduct(${i})" class="btn delete"> delete</button></td>
           </tr>`;
       }
     document.getElementById("tbody").innerHTML = table;
+    if(productsArray.length > 0){
+        document.getElementById('deleteAll').innerHTML = '<button onclick = "deleteAll()">Delete All</button>'
+    }
+    else document.getElementById('deleteAll').innerHTML = ''
 }
 showData()
 
