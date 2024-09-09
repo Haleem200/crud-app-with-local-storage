@@ -37,7 +37,7 @@ let deleteProduct = function(index){
 }
 
 let deleteAll = function(){
-    productsArray = []
+    productsArray.splice(0)
     localStorage.clear()
     showData()
 }
@@ -57,7 +57,7 @@ let showData = function(){
       }
     document.getElementById("tbody").innerHTML = table;
     if(productsArray.length > 0){
-        document.getElementById('deleteAll').innerHTML = '<button onclick = "deleteAll()">Delete All</button>'
+        document.getElementById('deleteAll').innerHTML =  '<button onclick = "deleteAll()" class="btn delete">Delete All</button>'
     }
     else document.getElementById('deleteAll').innerHTML = ''
 }
@@ -85,7 +85,7 @@ create.addEventListener('click', function(event){
     else{
         productsArray[loc] = product
         create.value = 'create'
-        mode = 'craete'
+        mode = 'create'
     }
 
     localStorage.setItem('products', JSON.stringify(productsArray))
