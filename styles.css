@@ -20,7 +20,7 @@ h1 {
 
 form {
     width: 300px;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -73,3 +73,33 @@ th,td{
     padding: 5px;
 }
 
+
+
+
+.btn{
+    color: #fff!important;
+    transition: 0.5s;
+    border-style: none;
+    border-radius: 5%;
+    height: 35px;
+    width: 100px;
+}
+.update{
+    background-color: #4CAF50;
+}
+
+.update:hover{
+    background-color: #45a049; 
+}
+.delete{
+    background-color: red !important;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+.delete:hover{
+    background-color:black;
+}
+.btn:hover{
+    cursor: pointer;
+}
